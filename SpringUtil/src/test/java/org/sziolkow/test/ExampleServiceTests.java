@@ -8,8 +8,12 @@ public class ExampleServiceTests {
 
 	private ExampleService service = new ExampleService();
 	
-	@Test
-	public void testReadOnce() throws Exception {
+	/**
+	 * Tests if the spring configuration is accessible.
+	 * @throws Exception
+	 */
+	@Test	
+	public void readOnce() throws Exception {
 		assertEquals("Hello world!", service.getMessage());
 	}
 
