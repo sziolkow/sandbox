@@ -13,12 +13,12 @@ public class PositionCheckerTest {
         
         @Override
         protected Result checkRows(int[][] playfield) {
-            return super.checkRows(playfield);
+        	return super.checkRows(playfield);
         }
 
         @Override
         protected Result checkColumns(int[][] playfield) {
-            return super.checkColumns(playfield);
+        	return super.checkColumns(playfield);
         }
 
         @Override

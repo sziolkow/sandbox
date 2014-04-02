@@ -8,6 +8,11 @@ import util.CustomFileReader;
 
 public class Runner {
 
+	/**
+	 * Main 
+	 * @param args
+	 * @throws IOException
+	 */
 	public static void main(String[] args) throws IOException {
 		
 		FileReader f = new FileReader("A-large-practice.in");
