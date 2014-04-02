@@ -4,6 +4,14 @@ import java.util.Iterator;
 import java.util.TreeSet;
 
 public class GrassField {
+	
+	private int rows;
+	private int columns;
+	
+	public GrassField(int aRows, int aColumns) {
+		rows = aRows;
+		columns = aColumns;
+	}
 
 	public TreeSet<Integer> calculateLengths(int[][] sampleField) {
 		TreeSet<Integer> lenghts =  new TreeSet<Integer>();
@@ -17,14 +25,11 @@ public class GrassField {
 	
 	public boolean checkPattern(int[][] field) {
 		boolean proper = true;
-
-		System.out.println(field.length);
-		System.out.println(field[0].length);
 		
 		for (Iterator<Integer> lengths = calculateLengths(field).descendingIterator(); lengths.hasNext();) {
 			Integer length = (Integer) lengths.next();
-			for (int i = 0; i < field.length; i++) {
-				for (int j = 0; j < field[0].length; j++) {
+			for (int i = 0; i < rows; i++) {
+				for (int j = 0; j < columns; j++) {
 					if(field[i][j]==length) {
 						boolean accessViaRow = checkAccessViaRow(field, i, length);
 						boolean accessViaColumn = checkAccessViaColumn(field, j, length);
@@ -43,10 +48,10 @@ public class GrassField {
 		return proper;
 	}
 
-	private boolean checkAccessViaColumn(int[][] field, int indexx, int len) {
+	private boolean checkAccessViaColumn(int[][] field, int indexy, int len) {
 		boolean retVal = true;
-		for (int i = 0; i < field[0].length; i++) {
-			if(field[indexx][i]>len) {
+		for (int i = 0; i < rows; i++) {
+			if(field[i][indexy]>len) {
 				return false;
 			}
 		}
@@ -55,8 +60,8 @@ public class GrassField {
 
 	private boolean checkAccessViaRow(int[][] field, int indexx, int len) {
 		boolean retVal = true;
-		for (int i = 0; i < field.length; i++) {
-			if(field[i][indexx]>len) {
+		for (int i = 0; i < columns; i++) {
+			if(field[indexx][i]>len) {
 				return false;
 			}
 		}

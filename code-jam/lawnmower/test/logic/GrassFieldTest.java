@@ -10,7 +10,7 @@ public class GrassFieldTest {
 
 	@Test
 	public void calculateLenghts(){
-		GrassField field =  new GrassField();
+		GrassField field =  new GrassField(3,3);
 
 		int[][] sampleField = new int[3][3];
 		sampleField[0] =new int[] {2,1,2};
@@ -25,7 +25,7 @@ public class GrassFieldTest {
 
 	@Test
 	public void checkPattern(){
-		GrassField field =  new GrassField();
+		GrassField field =  new GrassField(3,3);
 
 		int[][] sampleField = new int[3][3];
 		sampleField[0] =new int[] {2,1,2};
