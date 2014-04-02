@@ -43,10 +43,10 @@ public class GrassField {
 		return proper;
 	}
 
-	private boolean checkAccessViaColumn(int[][] field, int indexy, int len) {
+	private boolean checkAccessViaColumn(int[][] field, int indexx, int len) {
 		boolean retVal = true;
 		for (int i = 0; i < field[0].length; i++) {
-			if(field[i][indexy]>len) {
+			if(field[indexx][i]>len) {
 				return false;
 			}
 		}
@@ -56,7 +56,7 @@ public class GrassField {
 	private boolean checkAccessViaRow(int[][] field, int indexx, int len) {
 		boolean retVal = true;
 		for (int i = 0; i < field.length; i++) {
-			if(field[indexx][i]>len) {
+			if(field[i][indexx]>len) {
 				return false;
 			}
 		}
