@@ -41,11 +41,11 @@ public class FileReaderTest {
 		CustomFileReader cfr = new CustomFileReader();
 		Integer expectedNumberOfTestCases = cfr.readNumberOfTests(br);
 
-		List<Integer>row = cfr.readRow(br);
+		List<String>row = cfr.readRow(br);
 
-		List<Integer> expectedRow = new ArrayList<Integer>();
-		expectedRow.add(new Integer(1));
-		expectedRow.add(new Integer(4));		
+		List<String> expectedRow = new ArrayList<String>();
+		expectedRow.add("1");
+		expectedRow.add("4");		
 		
 		assertEquals(expectedRow, row);
 	}

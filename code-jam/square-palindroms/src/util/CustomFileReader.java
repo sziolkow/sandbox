@@ -53,12 +53,12 @@ public class CustomFileReader {
 		return retValue;
 	}
 	
-	public List<Integer> readRow(BufferedReader br) throws IOException{
-		List<Integer> row = new ArrayList<Integer>();
+	public List<String> readRow(BufferedReader br) throws IOException{
+		List<String> row = new ArrayList<String>();
 		String rowAsStr = br.readLine();
 		String[] values = rowAsStr.split(" ");
 		for(String value:values) {
-			row.add(new Integer(value));
+			row.add(value);
 		}
 		return row;
 	}
