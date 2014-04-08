@@ -21,7 +21,7 @@ public class Runner {
 	 */
 	public static void main(String[] args) throws IOException {
 		
-		FileReader f = new FileReader("src/res/C-small-practice.in" );
+		FileReader f = new FileReader("src/res/C-large-practice-2.in" );
 		BufferedReader br = new BufferedReader(f);
 		
 		CustomFileReader cfr =  new CustomFileReader();
@@ -30,19 +30,23 @@ public class Runner {
 		for (int i = 0; i < numberOfTests; i++) {
 			int numberOfPrimesAndSquarPrimes = 0;
 			List<String> values = cfr.readRow(br);
+
 			long fromVal = new Long(values.get(0));
-			long toVal = new Long(values.get(1));
-			toVal = (long) Math.sqrt(toVal);
+			long sqrtFromVal = (long) Math.sqrt(fromVal);
 			
-			for (long j = fromVal; j <= toVal; j++) {
+			long toVal = new Long(values.get(1));
+			long sqrtToVal = (long) Math.sqrt(toVal);
+			
+			for (long j = sqrtFromVal; j <= sqrtToVal; j++) {
 				String candidat = ""+j;
-				if (squarePalindronsCache.contains(candidat)) {
+				/*if (squarePalindronsCache.contains(candidat)) {
 					numberOfPrimesAndSquarPrimes ++;
 					continue;
-				} 
-				if (checker.isPalindron(""+j)) {
+				}*/
+				if (checker.isPalindron(candidat)) {
 					long result = j*j;
-					if(checker.isPalindron(""+result)) {
+					
+					if((result>=fromVal) && checker.isPalindron(""+result)) {
 						numberOfPrimesAndSquarPrimes ++;
 						squarePalindronsCache.add(""+result);
 					}

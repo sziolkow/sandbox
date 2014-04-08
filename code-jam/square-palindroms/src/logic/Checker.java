@@ -12,16 +12,16 @@ public class Checker {
 			return false;
 		}
 		
-		if(palindronsCache.contains(value)) {
+		/*if(palindronsCache.contains(value)) {
 			return true;
-		}
+		}*/
 		
 		for (int i = 0; i < (value.length() / 2); i++) {
 			if (value.charAt(i) != value.charAt(value.length()-i-1)) {
 				return false;
 			} 
 		}
-		palindronsCache.add(value);
+		//palindronsCache.add(value);
 		return true;
 	}
 	
