@@ -4,6 +4,7 @@ import Calculator.CustomCalculator.CCalculator;
 
 public class Calculator implements CCalculator {
 
+	@Override
 	public String add(String arg1, String arg2) {
 		String shortString =arg1;
 		String longString = arg2;
@@ -34,6 +35,7 @@ public class Calculator implements CCalculator {
 		return result.reverse().toString();
 	}
 
+	@Override
 	public String multiply(String arg1, String arg2) {
 		// TODO Auto-generated method stub
 		return null;
