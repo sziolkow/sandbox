@@ -3,6 +3,7 @@ package run;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.math.BigInteger;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -31,28 +32,29 @@ public class Runner {
 			int numberOfPrimesAndSquarPrimes = 0;
 			List<String> values = cfr.readRow(br);
 
-			long fromVal = new Long(values.get(0));
-			long sqrtFromVal = (long) Math.sqrt(fromVal);
+			BigInteger fromVal = new BigInteger (values.get(0));
+			//BigInteger sqrtFromVal = (long) Math.sqrt(fromVal);
 			
-			long toVal = new Long(values.get(1));
-			long sqrtToVal = (long) Math.sqrt(toVal);
+			BigInteger toVal = new BigInteger(values.get(1));
+			//long sqrtToVal = (long) Math.sqrt(toVal);
 			
-			for (long j = sqrtFromVal; j <= sqrtToVal; j++) {
+			/*for (long j = sqrtFromVal; j <= sqrtToVal; j++) {
 				String candidat = ""+j;
+				#*/
 				/*if (squarePalindronsCache.contains(candidat)) {
 					numberOfPrimesAndSquarPrimes ++;
 					continue;
 				}*/
-				if (checker.isPalindron(candidat)) {
+				/*if (checker.isPalindron(candidat)) {
 					long result = j*j;
 					
 					if((result>=fromVal) && checker.isPalindron(""+result)) {
 						numberOfPrimesAndSquarPrimes ++;
-						squarePalindronsCache.add(""+result);
+						//squarePalindronsCache.add(""+result);
 					}
 				}
-			}
-			System.out.println("Case #"+(i+1)+": "+numberOfPrimesAndSquarPrimes);
+			}*/
+			System.out.println("Case #"+(1)+": "/*+numberOfPrimesAndSquarPrimes*/);
 		}
 		br.close();
 		f.close();
