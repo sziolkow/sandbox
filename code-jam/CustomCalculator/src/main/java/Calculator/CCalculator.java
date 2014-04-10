@@ -1,4 +1,4 @@
-package Calculator.CustomCalculator;
+package Calculator;
 
 public interface CCalculator {
 

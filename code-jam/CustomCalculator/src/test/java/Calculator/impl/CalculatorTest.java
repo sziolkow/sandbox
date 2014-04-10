@@ -1,15 +1,15 @@
-package Calculator.CustomCalculator.impl;
+package Calculator.impl;
 
 import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-import Calculator.CustomCalculator.CCalculator;
+import Calculator.CCalculator;
 
 public class CalculatorTest {
-	
+
 	CCalculator calculator = new Calculator();
-	
+
 	@Test
 	public void addTwoStringsSameLength() {
 		String result = calculator.add("410", "310");
@@ -30,7 +30,7 @@ public class CalculatorTest {
 		System.out.println(result);
 		assertEquals("800", result);
 	}
-	
+
 	@Test
 	public void addTwoStringsDifferentLengthwithTransposition() {
 		String result = calculator.add("1450", "350");
@@ -38,4 +38,10 @@ public class CalculatorTest {
 		assertEquals("1800", result);
 	}
 
+	@Test
+	public void multiplyBasicNumbers() {
+		String result = calculator.multiply("4", "3");
+		System.out.println(result);
+		assertEquals("12", result);		
+	}
 }
