@@ -44,4 +44,26 @@ public class CalculatorTest {
 		System.out.println(result);
 		assertEquals("12", result);		
 	}
+
+	@Test
+	public void multiply21x1() {
+		String result = calculator.multiply("21", "1");
+		System.out.println(result);
+		assertEquals("21", result);		
+	}
+	
+	@Test
+	public void multiply999x9() {
+		String result = calculator.multiply("999", "9");
+		System.out.println(result);
+		assertEquals("8991", result);		
+	}
+
+	@Test
+	public void multiply12x12() {
+		String result = calculator.multiply("12", "12");
+		System.out.println(result);
+		assertEquals("144", result);		
+	}
+
 }
