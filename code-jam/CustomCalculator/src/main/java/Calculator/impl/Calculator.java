@@ -28,13 +28,19 @@ public class Calculator implements CCalculator {
 
 			result.append(partResult);
 		}
-
-		if (longString.length() - shortString.length() > 0) {
-			result.append(longString.subSequence(0, longString.length()
-					- shortString.length()));
+		
+		if (transposition >0) {
+			result.append(transposition);
+		}
+		
+		for (int j = 1; j <=( longString.length() - shortString.length()); j++) {
+			char a = longString.charAt(longString.length() - shortString.length() - j);
+			result.append(a);
 		}
 
-		return result.reverse().toString();
+		result = result.reverse(); 
+
+		return result.toString();
 	}
 
 	@Override

@@ -39,6 +39,13 @@ public class CalculatorTest {
 	}
 
 	@Test
+	public void add999And999() {
+		String result = calculator.add("999", "999");
+		System.out.println(result);
+		assertEquals("1998", result);
+	}
+	
+	@Test
 	public void multiplyBasicNumbers() {
 		String result = calculator.multiply("4", "3");
 		System.out.println(result);
@@ -66,4 +73,17 @@ public class CalculatorTest {
 		assertEquals("144", result);		
 	}
 
+	@Test
+	public void multiply1000000x1000000() {
+		String result = calculator.multiply("1000000", "1000000");
+		System.out.println(result);
+		assertEquals("1000000000000", result);		
+	}
+	
+	@Test
+	public void multiply1000000000000000000000000000000x1000000000000000000000000000000000000() {
+		String result = calculator.multiply("1000000000000000000000000000000000000", "1000000000000000000000000000000000000");
+		System.out.println(result);
+		assertEquals("1000000000000000000000000000000000000000000000000000000000000000000000000", result);		
+	}
 }
