@@ -56,9 +56,6 @@ public class Calculator implements CCalculator {
 		int innerPartResult;
 		int transposition = 0;
 		
-		String newResult;
-		
-		
 		for (int i = 1; i <= shortString.length(); i++) {
 			char a = shortString.charAt(shortString.length() - i);
 			resultInnerLoop = new StringBuffer();
@@ -85,6 +82,51 @@ public class Calculator implements CCalculator {
 			resultOutterLoop = new StringBuffer( add(resultOutterLoop.toString(), resultInnerLoop.toString()));
 		}
 		return resultOutterLoop.toString();
+	}
+
+	@Override
+	public String substract(String arg1, String arg2) {
+		StringBuffer result = new StringBuffer();
+		char number1, number2;
+		byte transposition = 0;
+		for (int i = 1; i <= arg1.length(); i++) {
+			number2 = '0';
+			if(arg2.length()-i>=0) { 
+				number2 = arg2.charAt(arg2.length() - i);
+			}
+			number1 = arg1.charAt(arg1.length() - i);
+			
+			int sub = Character.getNumericValue(number1)
+					- Character.getNumericValue(number2) - transposition;
+			
+			transposition = 0;
+			if (sub < 0) {
+				sub = sub +10;
+				transposition = 1;
+			} 
+			result.append(sub);
+		}
+		String resultAsStr = deleteLeadingNulls(result.reverse().toString());
+		
+		return resultAsStr;
+	}
+
+	private String deleteLeadingNulls(String arg1) {
+		StringBuffer result = new StringBuffer();
+		int index = 0;
+		int number;
+		do {
+			number = Character.getNumericValue(arg1.charAt(index));
+			index ++;
+		} while ((number == 0) && (index < arg1.length()));
+		result.append(arg1.substring(index-1));
+		return result.toString();
+	}
+
+	@Override
+	public int divide(String arg1, String arg2) {
+		// TODO Auto-generated method stub
+		return 0;
 	}
 
 }
