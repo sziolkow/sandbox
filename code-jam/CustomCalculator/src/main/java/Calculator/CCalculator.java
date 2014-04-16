@@ -8,6 +8,8 @@ public interface CCalculator {
 
 	public String substract(String arg1, String arg2);
 
-	public int divide(String arg1, String arg2);
+	public String divide(String arg1, String arg2);
+
+	public int compare(String arg1, String arg2);
 
 }

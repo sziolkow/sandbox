@@ -124,7 +124,21 @@ public class Calculator implements CCalculator {
 	}
 
 	@Override
-	public int divide(String arg1, String arg2) {
+	public String divide(String arg1, String arg2) {
+		int divider = Integer.valueOf(arg2); 
+		StringBuffer buf = new StringBuffer();
+		int rest = 0; 
+		for(int i = 0; i<arg1.length(); i++) {
+			int number = 10*rest + Character.getNumericValue(arg1.charAt(i));
+			int divRes = number/divider;
+			rest = number - (divRes*divider);
+			buf.append(divRes);
+		}
+		return deleteLeadingNulls(buf.toString());
+	}
+
+	@Override
+	public int compare(String arg1, String arg22) {
 		// TODO Auto-generated method stub
 		return 0;
 	}
