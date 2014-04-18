@@ -11,6 +11,13 @@ public class CalculatorTest {
 	CCalculator calculator = new Calculator();
 
 	@Test
+	public void add19and1() {
+		String result = calculator.add("19", "1");
+		System.out.println(result);
+		assertEquals("20", result);
+	}
+	
+	@Test
 	public void addTwoStringsSameLength() {
 		String result = calculator.add("410", "310");
 		System.out.println(result);

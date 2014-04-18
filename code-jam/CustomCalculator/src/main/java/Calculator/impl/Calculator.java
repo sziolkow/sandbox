@@ -15,9 +15,15 @@ public class Calculator implements CCalculator {
 
 		StringBuffer result = new StringBuffer();
 		int transposition = 0;
-		for (int i = 1; i <= shortString.length(); i++) {
-			char a = shortString.charAt(shortString.length() - i);
-			char b = longString.charAt(longString.length() - i);
+		char a='0';
+		char b='0';
+	
+		for (int i = 1; i <= longString.length(); i++) {
+			a='0';
+			if ((shortString.length() - i)>=0) {
+			   a = shortString.charAt(shortString.length() - i);
+			}
+			b = longString.charAt(longString.length() - i);
 			int partResult = Character.getNumericValue(a)
 					+ Character.getNumericValue(b) + transposition;
 			transposition = 0;
@@ -32,15 +38,8 @@ public class Calculator implements CCalculator {
 		if (transposition >0) {
 			result.append(transposition);
 		}
-		
-		for (int j = 1; j <=( longString.length() - shortString.length()); j++) {
-			char a = longString.charAt(longString.length() - shortString.length() - j);
-			result.append(a);
-		}
 
-		result = result.reverse(); 
-
-		return result.toString();
+		return result.reverse().toString(); 
 	}
 
 	@Override
@@ -138,9 +137,39 @@ public class Calculator implements CCalculator {
 	}
 
 	@Override
-	public int compare(String arg1, String arg22) {
-		// TODO Auto-generated method stub
+	public int compare(String arg1, String arg2) {
+		if (arg1.length() != arg2.length()) {
+			if (arg1.length() > arg2.length()) {
+				return 1;
+			}
+			return 2;
+		}
+		if (arg1.compareTo(arg2)==0) {
+			return 0;
+		}
+		for (int i = 0; i < arg1.length(); i++) {
+			int a1 =Character.getNumericValue(arg1.charAt(i));
+			int a2 =Character.getNumericValue(arg2.charAt(i));
+			if (a1 != a2) {
+				if (a1 > a2) {
+					return 1;
+				}
+				return 2;
+			}
+		}
 		return 0;
+	}
+
+	@Override
+	public String divideWithSubstracttion(String arg1, String arg2) {
+		// Result = m*arg1 + q
+		String q = arg1;
+		String m = "0";
+		while(compare(q,"0")==1) {
+			q = substract(q,arg2);
+			m = add(m,"1");			
+		}		
+		return m;
 	}
 
 }
